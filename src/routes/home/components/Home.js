@@ -4,7 +4,6 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        啊啊啊
       </div>
     );
   }

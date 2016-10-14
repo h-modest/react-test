@@ -31,5 +31,5 @@ ReactDOM.render(
       <Router history={history} routes={require('./routes')} />
     </div>
   </Provider>,
-  document.getElementById('mount')
+  document.getElementById('app')
 );

@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     const { children } = this.props;
     return (
-      <div className="cp-app">
+      <div>
         {children}
       </div>
     );
