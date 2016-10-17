@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import 'less/common.less';
+import 'less/index.less';
 
 class App extends Component {
 
