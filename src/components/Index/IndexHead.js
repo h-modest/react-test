@@ -1,5 +1,7 @@
 import React from 'react';
+import { Modal, Form, Input } from 'antd';
 import classNames from 'classnames';
+const FormItem = Form.Item;
 
 class IndexHead extends React.Component {
 
@@ -8,13 +10,33 @@ class IndexHead extends React.Component {
     this.state = {
       isOpenUserNav: false,
       isOpenCompanyNav: false,
+      visible: false
     };
   }
 
+  handleOk() {
+    this.setState({
+      visible: false
+    });
+  }
+
+  handleCancel() {
+    this.setState({
+      visible: false
+    });
+  }
+
+  disappear() {
+    let { isOpenCompanyNav } = this.state;
+    if(isOpenCompanyNav){
+      this.setState({ isOpenCompanyNav: false });
+    }
+  }
+
   render() {
-    let { isOpenUserNav, isOpenCompanyNav } = this.state;
+    let { isOpenUserNav, isOpenCompanyNav, visible } = this.state;
     return (
-      <div className="admin-head">
+      <div className="admin-head" onClick={() => this.disappear()}>
         <div className="head-company">
           <img className="image image-s" src="/images/01.png" />玄月之音
           <i className={classNames('fa', isOpenCompanyNav ? 'fa-chevron-up' : 'fa-chevron-down')} onClick={() => {
@@ -24,7 +46,7 @@ class IndexHead extends React.Component {
             <li>团队</li>
             <li>小公司</li>
             <li>大企业</li>
-            <li><i className="fa fa-plus"></i></li>
+            <li onClick={() => this.setState({ visible: true })}><i className="fa fa-plus"></i></li>
           </ul>}
         </div>
         <ul className="head-user">
@@ -46,6 +68,21 @@ class IndexHead extends React.Component {
               </ul>}
           </li>
         </ul>
+        <Modal
+          visible = { visible }
+          title="创建公司"
+          onOk={()=> this.handleOk()}
+          onCancel={()=> this.handleCancel()}
+        >
+          <Form horizontal>
+            <FormItem label="公司名">
+              <Input placeholder="请填写公司名" />
+            </FormItem>
+            <FormItem label="备注">
+              <Input placeholder="请填写备注" />
+            </FormItem>
+          </Form>
+        </Modal>
       </div>
     );
   }
