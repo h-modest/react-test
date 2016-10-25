@@ -1,5 +1,6 @@
 @standard:#3498db;
 
+//首页头部
 .admin-head {
   height: 60px;
   min-width: 550px;
@@ -28,6 +29,7 @@
       background: #fff;
       border-right: 1px solid @standard;
       border-bottom: 1px solid @standard;
+      z-index: 2;
 
       li {
         height: 40px;
@@ -78,6 +80,7 @@
             display: block;
             border: none;
             padding: 10px;
+            margin-bottom: 2px;
 
             &:hover{
               background: #eee;
@@ -89,5 +92,43 @@
         margin-right: 5px;
       }
     }
+  }
+}
+
+.admin-body {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  width: 128px;
+  background: #404853;
+  color: #fff;
+  font-size: 16px;
+
+  li.active {
+    background: #273238;
+  }
+  li {
+    padding: 16px 20px;
+    margin-bottom: 1px;
+    cursor: pointer;
+
+    &:first-child {
+      text-align: center;
+    }
+    &:hover {
+      background: #273238;
+    }
+    .fa {
+      margin-right: 10px;
+    }
+  }
+}
+
+.admin-body.shrink-state {
+  width: 40px;
+  transition: width .5s ease-in;
+
+  li {
+    padding: 10px;
   }
 }

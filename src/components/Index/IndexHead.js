@@ -14,6 +14,16 @@ class IndexHead extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.clickEvent = event => {
+      if(!/fa-chevron-up/.test(event.target.className)) {
+        this.setState({
+          isOpenCompanyNav: false,
+        });
+      }
+    };
+    document.addEventListener('click',this.clickEvent);
+  }
   handleOk() {
     this.setState({
       visible: false
@@ -26,17 +36,10 @@ class IndexHead extends React.Component {
     });
   }
 
-  disappear() {
-    let { isOpenCompanyNav } = this.state;
-    if(isOpenCompanyNav){
-      this.setState({ isOpenCompanyNav: false });
-    }
-  }
-
   render() {
     let { isOpenUserNav, isOpenCompanyNav, visible } = this.state;
     return (
-      <div className="admin-head" onClick={() => this.disappear()}>
+      <div className="admin-head">
         <div className="head-company">
           <img className="image image-s" src="/images/01.png" />玄月之音
           <i className={classNames('fa', isOpenCompanyNav ? 'fa-chevron-up' : 'fa-chevron-down')} onClick={() => {
@@ -56,7 +59,7 @@ class IndexHead extends React.Component {
           <li>
             <i className="fa fa-question"></i>帮助
           </li>
-          <li onMouseOver={() => this.setState({isOpenUserNav: true})} onMouseLeave={() => this.setState({ isOpenUserNav: false})}>
+          <li  onMouseEnter={() => this.setState({isOpenUserNav: true})} onMouseLeave={() => this.setState({ isOpenUserNav: false})}>
             <img className="image image-s" src="/images/02.png" />神无月的巫女
             <i className="fa fa-chevron-down"></i>
             {isOpenUserNav && <ul>
@@ -75,11 +78,19 @@ class IndexHead extends React.Component {
           onCancel={()=> this.handleCancel()}
         >
           <Form horizontal>
-            <FormItem label="公司名">
+            <FormItem
+              label="公司名："
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 16 }}
+            >
               <Input placeholder="请填写公司名" />
             </FormItem>
-            <FormItem label="备注">
-              <Input placeholder="请填写备注" />
+            <FormItem
+              label="备注："
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 16 }}
+            >
+              <Input type="textarea" placeholder="请填写备注" rows={4} />
             </FormItem>
           </Form>
         </Modal>
