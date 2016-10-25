@@ -75,6 +75,7 @@
           position: absolute;
           top: 60px;
           right: 0px;
+          z-index: 2;
 
           li {
             display: block;
@@ -96,39 +97,97 @@
 }
 
 .admin-body {
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  width: 128px;
-  background: #404853;
-  color: #fff;
-  font-size: 16px;
+  .admin-body-nav {
+    position: absolute;
+    top: 60px;
+    bottom: 0px;
+    width: 128px;
+    background: #404853;
+    color: #fff;
+    font-size: 16px;
 
-  li.active {
-    background: #273238;
-  }
-  li {
-    padding: 16px 20px;
-    margin-bottom: 1px;
-    cursor: pointer;
-
-    &:first-child {
-      text-align: center;
-    }
-    &:hover {
+    li.active {
       background: #273238;
     }
-    .fa {
-      margin-right: 10px;
+    li {
+      padding: 16px 20px;
+      margin-bottom: 1px;
+      cursor: pointer;
+
+      &:first-child {
+        text-align: center;
+      }
+      &:hover {
+        background: #273238;
+      }
+      .fa {
+        margin-right: 10px;
+      }
     }
   }
-}
 
-.admin-body.shrink-state {
-  width: 40px;
-  transition: width .5s ease-in;
+  //收缩动画
+.shrink {
+    width: 40px;
+    transition: width .3s ease-in;
 
-  li {
-    padding: 10px;
+    li {
+      padding: 10px;
+    }
+  }
+
+  //伸展动画
+  .stretch {
+    width: 128px;
+    transition: width .3s ease-in;
+
+    li {
+      padding: 16px 20px;
+    }
+  }
+
+  .admin-body-guide {
+    width: 320px;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    bottom: 0px;
+    background: #f8f8f8;
+    box-shadow: 2px 7px 16px #bbb;
+
+    .guide-flexible {
+      margin-top: 10px;
+      margin-left: 10px;
+      color: #333;
+
+      .fa {
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+    nav {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+
+      li {
+        float: left;
+        margin-left: 8px;
+
+        .fa {
+          font-size: 14px;
+          cursor: pointer;
+          color: #333;
+        }
+      }
+    }
+  }
+  .guide-shrink {
+    width: 34px;
+    transition: width .3s ease-in;
+  }
+  .guide-stretch {
+    width: 320px;
+    transition: width .3s ease-in;
   }
 }
