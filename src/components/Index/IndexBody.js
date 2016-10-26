@@ -31,13 +31,13 @@ class IndexBody extends React.Component {
               <i className="fa fa-list" onClick={() => this.setState({ isNavShrink: !isNavShrink })}></i>
             </Tooltip>
           </div>
-          <nav>
-            { !isNavShrink && <ul>
+          { !isNavShrink && <nav>
+             <ul>
               <li><i className="fa fa-calendar"></i></li>
               <li><i className="fa fa-database"></i></li>
               <li><i className="fa fa-reorder"></i></li>
-            </ul> }
-          </nav>
+            </ul>
+          </nav>}
         </div>
       </div>
     );
