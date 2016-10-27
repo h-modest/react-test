@@ -124,25 +124,23 @@
         margin-right: 10px;
       }
     }
-  }
+    //收缩动画
+    &.shrink {
+      width: 40px;
+      transition: width .3s ease-in;
 
-  //收缩动画
-.shrink {
-    width: 40px;
-    transition: width .3s ease-in;
-
-    li {
-      padding: 10px;
+      li {
+        padding: 10px;
+      }
     }
-  }
+    //伸展动画
+    &.stretch {
+      width: 128px;
+      transition: width .3s ease-in;
 
-  //伸展动画
-  .stretch {
-    width: 128px;
-    transition: width .3s ease-in;
-
-    li {
-      padding: 16px 20px;
+      li {
+        padding: 16px 20px;
+      }
     }
   }
 
@@ -155,14 +153,29 @@
     background: #f8f8f8;
     box-shadow: 2px 7px 16px #bbb;
 
-    .guide-flexible {
-      margin-top: 10px;
-      margin-left: 10px;
-      color: #333;
+    .guide-head {
+      background: #fff;
+      height: 400px;
+      position: relative;
 
-      .fa {
-        font-size: 16px;
-        cursor: pointer;
+      .guide-flexible {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #333;
+
+        .fa {
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+      .guide-date {
+        text-align: center;
+
+        .fa {
+          font-size: 38px;
+          color: #fff;
+        }
       }
     }
     nav {
@@ -172,22 +185,32 @@
 
       li {
         float: left;
-        margin-left: 8px;
+        margin-left: 5px;
 
         .fa {
           font-size: 14px;
           cursor: pointer;
           color: #333;
+
+          &.fa-calendar {
+            color: #EBB52A;
+          }
+          &.fa-database {
+            color: @standard;
+          }
+          &.fa-reorder {
+            color: #802AEB;
+          }
         }
       }
     }
-  }
-  .guide-shrink {
-    width: 34px;
-    transition: width .3s ease-in;
-  }
-  .guide-stretch {
-    width: 320px;
-    transition: width .3s ease-in;
+    &.guide-shrink {
+      width: 34px;
+      transition: width .3s ease-in;
+    }
+    &.guide-stretch {
+      width: 320px;
+      transition: width .3s ease-in;
+    }
   }
 }

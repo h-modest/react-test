@@ -26,16 +26,33 @@ class IndexBody extends React.Component {
           </ul>
         </div>
         <div className={classNames('admin-body-guide', isNavShrink ? 'guide-shrink' : 'guide-stretch')}>
-          <div className="guide-flexible">
-            <Tooltip placement="top" title="导航栏">
-              <i className="fa fa-list" onClick={() => this.setState({ isNavShrink: !isNavShrink })}></i>
-            </Tooltip>
+          <div className="guide-head">
+            <div className="guide-flexible">
+              <Tooltip placement="left" title="导航栏">
+                <i className="fa fa-list" onClick={() => this.setState({ isNavShrink: !isNavShrink })}></i>
+              </Tooltip>
+            </div>
+            <div className="guide-date">
+              <i className="fa fa-cloud"></i>
+            </div>
           </div>
           { !isNavShrink && <nav>
              <ul>
-              <li><i className="fa fa-calendar"></i></li>
-              <li><i className="fa fa-database"></i></li>
-              <li><i className="fa fa-reorder"></i></li>
+              <li>
+                <Tooltip placement="top" title="日程">
+                  <i className="fa fa-calendar"></i>
+                </Tooltip>
+              </li>
+              <li>
+                <Tooltip placement="top" title="任务">
+                  <i className="fa fa-database"></i>
+                </Tooltip>
+              </li>
+              <li>
+                <Tooltip placement="top" title="笔记">
+                  <i className="fa fa-reorder"></i>
+                </Tooltip>
+              </li>
             </ul>
           </nav>}
         </div>
