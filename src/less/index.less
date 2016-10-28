@@ -160,7 +160,7 @@
 
       .guide-flexible {
         position: absolute;
-        top: 10px;
+        top: 8px;
         left: 10px;
         color: #333;
 
@@ -173,8 +173,69 @@
         text-align: center;
 
         .fa {
-          font-size: 38px;
-          color: #fff;
+          font-size: 28px;
+          color: #bbb;
+          margin-top: 10px;
+        }
+        .city-form {
+          position: absolute;
+          top: 8px;
+          right: 10px;
+
+          span {
+            &:first-child {
+              display: block;
+              font-weight: bold;
+            }
+          }
+          .test-city {
+            display: inline-block;
+
+            span {
+              cursor: pointer;
+              font-weight: normal;
+            }
+            .city-select {
+              position: absolute;
+              top: 45px;
+              left: -258px;
+              right: 0px;
+              height: 50px;
+              background: #eee;
+              border-radius: 5px;
+
+              &::before {
+                position: absolute;
+                top: -7px;
+                right:13px;
+                height: 13px;
+                width: 13px;
+                content: "";
+                background:#eee;
+                transform: rotate(45deg);
+              }
+              .ant-select {
+                position: absolute;
+                top: 10px;
+                &:first-child {
+                  right: 80px;
+
+                  &.province-selected {
+                    right: 180px;
+                  }
+                }
+
+                &:nth-child(2) {
+                  right: 80px;
+                }
+              }
+              .ant-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+              }
+            }
+          }
         }
       }
     }

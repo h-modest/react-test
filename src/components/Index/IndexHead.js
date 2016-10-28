@@ -3,6 +3,11 @@ import { Modal, Form, Input } from 'antd';
 import classNames from 'classnames';
 const FormItem = Form.Item;
 
+let Data = [
+  {icon: '&#xe651;'},
+  {icon: '&#xe650;'}
+];
+
 class IndexHead extends React.Component {
 
   constructor(props) {
@@ -38,8 +43,13 @@ class IndexHead extends React.Component {
 
   render() {
     let { isOpenUserNav, isOpenCompanyNav, visible } = this.state;
+    const Da = Data.map(item => {
+      console.log(item.icon);
+      return (<i className="icon iconfont">{item.icon}</i>);
+    });
     return (
       <div className="admin-head">
+      {Da}
         <div className="head-company">
           <img className="image image-s" src="/images/01.png" />玄月之音
           <i className={classNames('fa', isOpenCompanyNav ? 'fa-chevron-up' : 'fa-chevron-down')} onClick={() => {

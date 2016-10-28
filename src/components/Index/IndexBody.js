@@ -2,17 +2,26 @@ import React from 'react';
 import { Tooltip } from 'antd';
 import classNames from 'classnames';
 
+import CitySelect from 'components/common/CitySelect';
+
 class IndexBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isShrink: false,
       isNavShrink: false,
+      defaultCity: '厦门',
     };
   }
 
+  selectCity(city) {
+    this.setState({
+      defaultCity: city,
+    });
+  }
+
   render() {
-    let { isShrink, isNavShrink } = this.state;
+    let { isShrink, isNavShrink, defaultCity } = this.state;
     return (
       <div className="admin-body">
         <div className={classNames('admin-body-nav', isShrink ? 'shrink' : 'stretch')}>
@@ -32,9 +41,18 @@ class IndexBody extends React.Component {
                 <i className="fa fa-list" onClick={() => this.setState({ isNavShrink: !isNavShrink })}></i>
               </Tooltip>
             </div>
-            <div className="guide-date">
+            { !isNavShrink && <div className="guide-date">
               <i className="fa fa-cloud"></i>
-            </div>
+              <div className="city-form">
+                <span>{defaultCity}</span>
+                <CitySelect
+                  onSelect={(city) => this.selectCity(city)}
+                />
+              </div>
+              <div className="date">
+
+              </div>
+            </div>}
           </div>
           { !isNavShrink && <nav>
              <ul>
