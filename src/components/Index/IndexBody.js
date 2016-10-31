@@ -27,11 +27,11 @@ class IndexBody extends React.Component {
         <div className={classNames('admin-body-nav', isShrink ? 'shrink' : 'stretch')}>
           <ul>
             <li onClick={() => this.setState({ isShrink: !isShrink })}><i className="fa fa-list"></i></li>
-            <li className="active"><i className="fa fa-desktop"></i>{!isShrink && '工 作 台'}</li>
-            <li><i className="fa fa-tasks"></i>{!isShrink && '任 务'}</li>
-            <li><i className="fa fa-calendar-o"></i>{!isShrink && '日 程'}</li>
-            <li><i className="fa fa-inbox"></i>{!isShrink && '通 知'}</li>
-            <li><i className="fa fa-gear"></i>{!isShrink && '账 户'}</li>
+            <li className="active"><i className="fa fa-desktop"></i><span>{!isShrink && '工 作 台'}</span></li>
+            <li><i className="fa fa-tasks"></i><span>{!isShrink && '任 　 务'}</span></li>
+            <li><i className="fa fa-calendar-o"></i><span>{!isShrink && '日 　 程'}</span></li>
+            <li><i className="fa fa-inbox"></i><span>{!isShrink && '通 　 知'}</span></li>
+            <li><i className="fa fa-gear"></i><span>{!isShrink && '账 　 户'}</span></li>
           </ul>
         </div>
         <div className={classNames('admin-body-guide', isNavShrink ? 'guide-shrink' : 'guide-stretch')}>
@@ -42,7 +42,10 @@ class IndexBody extends React.Component {
               </Tooltip>
             </div>
             { !isNavShrink && <div className="guide-date">
-              <i className="fa fa-cloud"></i>
+              <div className="weather">
+                <i className="fa fa-cloud"></i>
+                <p>31℃<span>31°/ 24°</span></p>
+              </div>
               <div className="city-form">
                 <span>{defaultCity}</span>
                 <CitySelect
@@ -50,7 +53,6 @@ class IndexBody extends React.Component {
                 />
               </div>
               <div className="date">
-
               </div>
             </div>}
           </div>
